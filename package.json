@@ -1,0 +1,13 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "Weather app with clothing recommendations",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
