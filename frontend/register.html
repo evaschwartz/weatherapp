@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B0C0E6">
+
+  <title>Vejrli – Dine præferencer</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+
+<body class="auth-body">
+
+  <main class="auth-shell">
+
+    <section class="auth-content register-content glass-card">
+
+      <a
+        href="/login.html"
+        class="back-link"
+      >
+        ← Tilbage
+      </a>
+
+      <img
+        src="/assets/icons/logo/logo.png"
+        alt="Vejrli"
+        class="auth-logo"
+      >
+
+      <div class="auth-heading">
+
+        <span class="eyebrow">
+          PERSONLIG TILPASNING
+        </span>
+
+        <h1>
+          Lidt om dig<span class="accent">.</span>
+        </h1>
+
+        <p>
+          Fortæl os om dine præferencer,
+          så vi kan anbefale det rigtige tøj
+          til vejret.
+        </p>
+
+      </div>
+
+      <form id="preferences-form">
+
+        <div class="form-field">
+
+          <label for="age_group">
+            Aldersgruppe
+          </label>
+
+          <select
+            id="age_group"
+            name="age_group"
+            required
+          >
+            <option value="" disabled selected>
+              Vælg aldersgruppe
+            </option>
+            <option value="child">Barn</option>
+            <option value="teen">Teenager</option>
+            <option value="adult">Voksen</option>
+          </select>
+
+        </div>
+
+        <div class="form-field">
+
+          <label for="sensitivity">
+            Temperaturfølsomhed
+          </label>
+
+          <select
+            id="sensitivity"
+            name="sensitivity"
+            required
+          >
+            <option value="" disabled selected>
+              Vælg temperaturfølsomhed
+            </option>
+            <option value="cold">
+              Jeg fryser nemt
+            </option>
+            <option value="neutral">
+              Jeg har det som regel tilpas
+            </option>
+            <option value="warm">
+              Jeg har det ofte varmt
+            </option>
+          </select>
+
+        </div>
+
+        <div class="form-field">
+
+          <label for="transport">
+            Transportform
+          </label>
+
+          <select
+            id="transport"
+            name="transport"
+            required
+          >
+            <option value="" disabled selected>
+              Vælg transportform
+            </option>
+            <option value="walk">Gående</option>
+            <option value="bike">Cykel</option>
+            <option value="car">
+              Bil / offentlig transport
+            </option>
+          </select>
+
+        </div>
+
+        <div class="form-field">
+
+          <label for="preferred_city">
+            Foretrukken by
+          </label>
+
+          <select
+            id="preferred_city"
+            name="preferred_city"
+            required
+          >
+            <option value="" disabled selected>
+              Vælg by
+            </option>
+          </select>
+
+        </div>
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Se mit vejr
+        </button>
+
+        <p
+          id="form-error"
+          class="form-error"
+          role="alert"
+        ></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

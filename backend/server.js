@@ -3,9 +3,9 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// JSON-data
+// Tillad JSON
 app.use(express.json());
 
 // Assets
@@ -14,20 +14,21 @@ app.use(
   express.static(path.join(__dirname, "../assets"))
 );
 
+// API-routes
+app.use("/api/users", require("./routes/users"));
+app.use("/api/weather", require("./routes/weather"));
+
 // Frontend
 app.use(
   express.static(path.join(__dirname, "../frontend"))
 );
 
-// API
+// Endpoint
 app.get("/api/health", (req, res) => {
-  res.json({
-    status: "success",
-    message: "WeatherApp server is running!"
-  });
+  res.json({ status: "ok" });
 });
 
-// Start serveren
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`WeatherApp: http://localhost:${PORT}`);
 });

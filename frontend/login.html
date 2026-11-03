@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B0C0E6">
+
+  <title>Vejrli – Velkommen</title>
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+
+<body class="auth-body">
+
+  <main class="auth-shell">
+
+    <section class="auth-content glass-card">
+
+      <!-- LOGO -->
+      <img
+        src="/assets/icons/logo/logo.png"
+        alt="Vejrli"
+        class="auth-logo"
+      >
+
+      <div class="auth-heading">
+
+        <h1>
+          Hej med dig<span class="accent">.</span>
+        </h1>
+
+        <p>
+          Få vejret og personlige anbefalinger til,
+          hvad du skal tage på.
+        </p>
+
+      </div>
+
+      <!-- LOGIN -->
+      <form id="login-form">
+
+        <div class="form-field">
+
+          <label for="name">
+            Hvad hedder du?
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Dit navn"
+            minlength="2"
+            maxlength="40"
+            autocomplete="nickname"
+            required
+          >
+
+        </div>
+
+        <button
+          class="primary-btn"
+          type="submit"
+        >
+          Fortsæt
+        </button>
+
+        <p
+          id="form-error"
+          class="form-error"
+          role="alert"
+        ></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

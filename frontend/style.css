@@ -1,0 +1,1638 @@
+
+/* =========================================
+   VEJRLI — FONTS
+========================================= */
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi-Variable.ttf")
+    format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi-VariableItalic.ttf")
+    format("truetype");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash";
+  src: url("/assets/fonts/ClashDisplay-Variable.ttf")
+    format("truetype");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   DESIGN SYSTEM
+========================================= */
+
+:root {
+  --gradient-top: #B0C0E6;
+  --gradient-bottom: #FF9E5E;
+
+  --ink: #202138;
+  --accent: #FF9E5E;
+  --danger: #BD5665;
+
+  --muted: rgba(32, 33, 56, 0.65);
+  --subtle: rgba(32, 33, 56, 0.45);
+
+  --card-bg: rgba(255, 255, 255, 0.45);
+  --card-stroke: #FFFFFF;
+  --inner-card: rgba(255, 255, 255, 0.30);
+
+  --radius-card: 13px;
+  --radius-inner: 12px;
+  --radius-input: 14px;
+
+  --font-body: "Satoshi", sans-serif;
+  --font-display: "Clash", sans-serif;
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: linear-gradient(
+    180deg,
+    var(--gradient-top) 0%,
+    var(--gradient-bottom) 100%
+  );
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select {
+  min-width: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   GLOBAL BACKGROUND
+========================================= */
+
+.app-body,
+.auth-body,
+.profile-body {
+  min-height: 100dvh;
+  background: linear-gradient(
+    180deg,
+    #B0C0E6 0%,
+    #C2B8C8 30%,
+    #D9B1A9 55%,
+    #EDAA87 78%,
+    #FF9E5E 100%
+  );
+  background-attachment: fixed;
+}
+
+/* =========================================
+   GLASS CARDS
+========================================= */
+
+.glass-card {
+  min-width: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  border-radius: var(--radius-card);
+  box-shadow: none;
+}
+
+.glass-card {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.detail-tile,
+.clothing-item,
+.daily-row {
+  background: rgba(255, 255, 255, 0.30);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+}
+
+h1,
+h2 {
+  letter-spacing: -0.035em;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.accent-label {
+  color: var(--accent);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-btn {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 13px 20px;
+  border: none;
+  border-radius: var(--radius-input);
+
+  background: var(--ink);
+  color: #FFFFFF;
+
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.93;
+}
+
+.secondary-btn {
+  min-height: 48px;
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: var(--radius-input);
+
+  background: var(--ink);
+  color: #FFFFFF;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+.icon-btn {
+  width: 43px;
+  height: 43px;
+
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--ink);
+
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* =========================================
+   FORM ELEMENTS
+========================================= */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 50px;
+
+  padding: 12px 17px;
+  border: 1px solid rgba(32, 33, 56, 0.22);
+  border-radius: var(--radius-input);
+
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink);
+  font-size: 13px;
+}
+
+input::placeholder {
+  color: rgba(32, 33, 56, 0.4);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.form-error:empty,
+.save-status:empty,
+.status:empty {
+  display: none;
+}
+
+/* =========================================
+   DASHBOARD LAYOUT
+========================================= */
+
+.dashboard-shell {
+  width: 100%;
+  max-width: 1700px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 32px 55px 55px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "hero"
+    "today"
+    "details"
+    "clothing"
+    "weekly"
+    "status";
+
+  gap: 26px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+  position: relative;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.topbar-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.topbar-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.topbar-copy strong {
+  font-size: 17px;
+  font-weight: 900;
+}
+
+/* =========================================
+   COMPACT MENU
+========================================= */
+
+.app-menu {
+  position: relative;
+}
+
+.menu-trigger {
+  list-style: none;
+  user-select: none;
+}
+
+.menu-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 100;
+
+  width: 240px;
+  max-width: calc(100vw - 30px);
+
+  padding: 12px;
+  border: 1px solid #FFFFFF;
+  border-radius: 17px;
+
+  background: rgba(255, 249, 247, 0.97);
+  box-shadow: 0 14px 40px rgba(32, 33, 56, 0.15);
+}
+
+.menu-title {
+  display: block;
+  padding: 9px 12px 13px;
+
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.menu-link > span {
+  min-width: 20px;
+  font-size: 18px;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  background: rgba(176, 192, 230, 0.35);
+}
+
+/* =========================================
+   WEATHER HERO
+========================================= */
+
+.weather-hero {
+  grid-area: hero;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 20px;
+  text-align: center;
+}
+
+.city-selector {
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.city-selector:hover {
+  opacity: 0.7;
+}
+
+.temperature-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 12px;
+}
+
+.temp {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  font-family: var(--font-display);
+  font-size: clamp(115px, 12vw, 175px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+}
+
+.degree {
+  margin-top: 0.07em;
+  font-size: 0.48em;
+  letter-spacing: 0;
+}
+
+.temperature-wrapper h1 {
+  margin: 10px 0 0;
+
+  font-family: var(--font-body);
+  font-size: 25px;
+  font-weight: 900;
+}
+
+#weather-meta {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+.hero-weather-symbol {
+  display: none;
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.section-heading > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* =========================================
+   TODAY / HOURLY WEATHER
+========================================= */
+
+.weather-today {
+  grid-area: today;
+  padding: 28px;
+}
+
+.hourly {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 5px;
+
+  scrollbar-width: thin;
+}
+
+.hour {
+  flex: 1 0 68px;
+  min-width: 68px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 5px;
+  text-align: center;
+}
+
+.hour small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.hour-icon-wrap {
+  height: 53px;
+  display: grid;
+  place-items: center;
+}
+
+.hour strong {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.weather-svg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.weather-svg--small {
+  width: 44px;
+  height: 44px;
+}
+
+.weather-svg--tiny {
+  width: 34px;
+  height: 34px;
+}
+
+/* =========================================
+   CURRENT WEATHER DETAILS
+========================================= */
+
+.weather-details {
+  grid-area: details;
+  padding: 28px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.detail-tile {
+  min-width: 0;
+  min-height: 145px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 17px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-inner);
+
+  background: var(--inner-card);
+  text-align: center;
+}
+
+.detail-icon {
+  display: grid;
+  place-items: center;
+
+  width: 51px;
+  height: 51px;
+}
+
+.detail-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.detail-label {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.detail-tile strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================
+   CLOTHING RECOMMENDATIONS
+========================================= */
+
+.clothing-card {
+  grid-area: clothing;
+  padding: 28px;
+}
+
+#clothing-intro {
+  margin: -2px 0 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+
+  margin-bottom: 17px;
+}
+
+.clothing-item {
+  min-width: 0;
+  min-height: 60px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 10px 14px;
+  border: 1px solid #FFFFFF;
+  border-radius: var(--radius-inner);
+
+  background: var(--inner-card);
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.clothing-item .emoji {
+  flex-shrink: 0;
+  font-size: 27px;
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   WEEKLY FORECAST
+========================================= */
+
+.weekly-card {
+  grid-area: weekly;
+  padding: 28px;
+}
+
+.daily {
+  display: grid;
+  gap: 18px;
+}
+
+.daily-row {
+  min-width: 0;
+  min-height: 64px;
+
+  display: grid;
+  grid-template-columns:
+    80px
+    50px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+  gap: 15px;
+
+  padding: 10px 19px;
+  border: 1px solid #FFFFFF;
+  border-radius: var(--radius-inner);
+  background: var(--inner-card);
+}
+
+.daily-row .day {
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.daily-icon {
+  display: grid;
+  place-items: center;
+}
+
+.daily-row .condition {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.daily-row strong {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status {
+  grid-area: status;
+  margin: 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* =========================================
+   CITY DIALOG
+========================================= */
+
+dialog {
+  width: min(420px, calc(100% - 30px));
+  max-height: 80dvh;
+  overflow-y: auto;
+
+  padding: 23px;
+  border: 1px solid #FFFFFF;
+  border-radius: 20px;
+
+  background: #f4e7e7;
+  color: var(--ink);
+
+  box-shadow: 0 20px 60px rgba(32, 33, 56, 0.18);
+}
+
+dialog::backdrop {
+  background: rgba(32, 33, 56, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dialog-heading h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.city-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.city-list button {
+  width: 100%;
+  padding: 14px 17px;
+
+  border: 1px solid #FFFFFF;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+
+  font-weight: 800;
+  text-align: left;
+}
+
+.city-list button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   AUTH / LOGIN
+========================================= */
+
+.auth-body {
+  display: grid;
+  place-items: center;
+  padding: 25px;
+}
+
+.auth-shell {
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-content {
+  width: 100%;
+  min-height: 535px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 49px 46px 40px;
+}
+
+.auth-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+
+  margin-bottom: 17px;
+}
+
+.auth-heading h1 {
+  margin: 0 0 8px;
+
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 49px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.auth-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.auth-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  margin-top: auto;
+  padding-top: 45px;
+}
+
+.auth-content .primary-btn {
+  margin-top: 0;
+}
+
+.back-link {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.register-content {
+  min-height: auto;
+}
+
+.register-content form {
+  margin-top: 18px;
+  padding-top: 0;
+  gap: 18px;
+}
+
+.register-content .auth-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.register-content .primary-btn {
+  margin-top: 4px;
+}
+
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile-body {
+  padding: 40px 28px 55px;
+}
+
+.profile-shell {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.profile-topbar {
+  margin-bottom: 29px;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "intro intro"
+    "preferences favorites"
+    "logout logout";
+
+  gap: 33px 28px;
+  align-items: stretch;
+}
+
+/* PROFILE INTRO */
+
+.profile-intro {
+  grid-area: intro;
+
+  min-height: 205px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 37px 60px;
+}
+
+.profile-intro-copy {
+  max-width: 530px;
+}
+
+.profile-intro .eyebrow {
+  color: var(--accent);
+}
+
+.profile-intro h1 {
+  margin: 12px 0 16px;
+
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 600;
+  line-height: 1.1;
+
+  overflow-wrap: anywhere;
+}
+
+.profile-intro p {
+  max-width: 390px;
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.profile-logo {
+  width: 126px;
+  height: 126px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* PROFILE CARDS */
+
+.profile-preferences {
+  grid-area: preferences;
+}
+
+.profile-favorites {
+  grid-area: favorites;
+}
+
+.profile-preferences,
+.profile-favorites {
+  min-width: 0;
+  min-height: 550px;
+  padding: 43px 40px;
+}
+
+.profile-section-heading h2 {
+  margin: 10px 0 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.profile-description {
+  margin: 19px 0 31px;
+  max-width: 390px;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.profile-form .primary-btn {
+  margin-top: 9px;
+}
+
+.save-status {
+  margin: 0;
+  color: #385d43;
+  font-size: 13px;
+}
+
+/* FAVORITES */
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.favorite-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  min-height: 50px;
+  padding: 10px 17px;
+
+  border: 1px solid #FFFFFF;
+  border-radius: var(--radius-input);
+
+  background: rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.favorite-chip button {
+  padding: 5px;
+
+  border: none;
+  background: transparent;
+
+  color: var(--danger);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.favorite-add {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.favorite-add select {
+  flex: 1;
+}
+
+.logout-btn {
+  grid-area: logout;
+  justify-self: start;
+
+  padding: 0 0 10px;
+  border: none;
+  background: transparent;
+
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.logout-btn:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   DESKTOP DASHBOARD
+========================================= */
+
+@media (min-width: 900px) {
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-areas:
+      "hero hero"
+      "today today"
+      "details clothing"
+      "weekly weekly"
+      "status status";
+
+    gap: 27px 30px;
+  }
+
+  .weather-hero {
+    min-height: 330px;
+    padding-top: 0;
+  }
+
+  .weather-today {
+    padding: 30px;
+  }
+
+  .weather-details,
+  .clothing-card {
+    min-height: 260px;
+  }
+
+  .weekly-card {
+    padding: 33px;
+  }
+
+}
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1500px) {
+
+  .dashboard-shell {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+
+  .dashboard-grid {
+    gap: 31px 34px;
+  }
+
+  .weather-hero {
+    min-height: 345px;
+  }
+
+  .hour {
+    flex-basis: 85px;
+  }
+
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 700px) and (max-width: 899px) {
+
+  .dashboard-shell {
+    padding: 27px 35px;
+  }
+
+  .dashboard-grid {
+    gap: 22px;
+  }
+
+  .weather-hero {
+    padding-top: 20px;
+  }
+
+  .weather-today,
+  .weather-details,
+  .clothing-card,
+  .weekly-card {
+    padding: 24px;
+  }
+
+  .profile-layout {
+    gap: 20px;
+  }
+
+  .profile-preferences,
+  .profile-favorites {
+    padding: 28px 23px;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 699px) {
+
+  .app-body,
+  .auth-body,
+  .profile-body {
+    background-attachment: scroll;
+  }
+
+  /* DASHBOARD */
+
+  .dashboard-shell {
+    padding: 25px 25px 40px;
+  }
+
+  .topbar {
+    margin-bottom: 0;
+  }
+
+  .topbar-left {
+    gap: 12px;
+  }
+
+  .topbar-label {
+    font-size: 10px;
+  }
+
+  .topbar-copy strong {
+    font-size: 15px;
+  }
+
+  .dashboard-grid {
+    gap: 13px;
+  }
+
+  .weather-hero {
+    min-height: 285px;
+    padding: 5px 0 20px;
+  }
+
+  .city-selector {
+    font-size: 20px;
+  }
+
+  .temperature-wrapper {
+    padding-top: 13px;
+  }
+
+  .temp {
+    font-size: clamp(112px, 30vw, 145px);
+  }
+
+  .temperature-wrapper h1 {
+    font-size: 25px;
+    margin-top: 7px;
+  }
+
+  #weather-meta {
+    font-size: 14px;
+    margin-top: 7px;
+  }
+
+  /* CARDS */
+
+  .weather-today,
+  .weather-details,
+  .clothing-card,
+  .weekly-card {
+    padding: 20px 15px;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 15px;
+  }
+
+  .section-heading > span {
+    font-size: 10px;
+  }
+
+  /* HOURLY */
+
+  .hourly {
+    gap: 0;
+  }
+
+  .hour {
+    flex: 1 0 62px;
+    min-width: 62px;
+    gap: 5px;
+    padding: 4px 2px;
+  }
+
+  .hour small {
+    font-size: 11px;
+  }
+
+  .hour-icon-wrap {
+    height: 49px;
+  }
+
+  .weather-svg--small {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hour strong {
+    font-size: 14px;
+  }
+
+  /* DETAILS */
+
+  .details-grid {
+    gap: 10px;
+  }
+
+  .detail-tile {
+    min-height: 130px;
+    padding: 10px 5px;
+    gap: 7px;
+  }
+
+  .detail-icon {
+    width: 41px;
+    height: 41px;
+  }
+
+  .detail-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .detail-label {
+    font-size: 10px;
+  }
+
+  .detail-tile strong {
+    font-size: 15px;
+  }
+
+  /* CLOTHING */
+
+  #clothing-intro {
+    font-size: 11px;
+    margin-bottom: 17px;
+  }
+
+  .clothing-grid {
+    gap: 9px 10px;
+  }
+
+  .clothing-item {
+    min-height: 46px;
+    padding: 7px 9px;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .clothing-item .emoji {
+    font-size: 21px;
+  }
+
+  .text-link {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+  }
+
+  /* WEEKLY */
+
+  .daily {
+    gap: 9px;
+  }
+
+  .daily-row {
+    min-height: 47px;
+
+    grid-template-columns:
+      50px
+      31px
+      minmax(0, 1fr)
+      auto;
+
+    gap: 6px;
+    padding: 7px 10px;
+  }
+
+  .daily-row .day {
+    font-size: 12px;
+  }
+
+  .daily-row .condition {
+    font-size: 10px;
+  }
+
+  .daily-row strong {
+    font-size: 12px;
+  }
+
+  .weather-svg--tiny {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* LOGIN */
+
+  .auth-body {
+    padding: 25px;
+  }
+
+  .auth-content {
+    min-height: 400px;
+    padding: 29px 32px 33px;
+    border-radius: 35px;
+  }
+
+  .auth-logo {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 12px;
+  }
+
+  .auth-heading h1 {
+    font-size: 40px;
+  }
+
+  .auth-heading > p {
+    font-size: 12px;
+  }
+
+  .auth-content form {
+    padding-top: 32px;
+  }
+
+  .register-content {
+    min-height: auto;
+  }
+
+  /* PROFILE */
+
+  .profile-body {
+    padding: 35px 25px 50px;
+  }
+
+  .profile-topbar {
+    margin-bottom: 25px;
+  }
+
+  .profile-layout {
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+      "intro"
+      "favorites"
+      "preferences"
+      "logout";
+
+    gap: 18px;
+  }
+
+  .profile-intro {
+    min-height: 255px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 27px 31px;
+    border-radius: 16px;
+  }
+
+  .profile-logo {
+    order: -1;
+    width: 75px;
+    height: 75px;
+  }
+
+  .profile-intro h1 {
+    font-size: clamp(27px, 7.5vw, 36px);
+    margin: 12px 0;
+  }
+
+  .profile-intro p {
+    font-size: 12px;
+  }
+
+  .profile-preferences,
+  .profile-favorites {
+    min-height: auto;
+    padding: 29px 31px;
+    border-radius: 16px;
+  }
+
+  .profile-favorites {
+    min-height: 330px;
+  }
+
+  .profile-section-heading h2 {
+    font-size: 29px;
+  }
+
+  .profile-description {
+    font-size: 12px;
+    margin: 15px 0 24px;
+  }
+
+  .profile-form {
+    gap: 17px;
+  }
+
+  .form-field label {
+    font-size: 13px;
+  }
+
+  .favorite-add {
+    gap: 7px;
+  }
+
+  .secondary-btn {
+    padding: 10px 13px;
+  }
+
+  .logout-btn {
+    margin-top: 4px;
+  }
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .dashboard-shell {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .profile-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .clothing-grid {
+    gap: 7px;
+  }
+
+  .clothing-item {
+    font-size: 10px;
+  }
+
+  .detail-label {
+    font-size: 9px;
+  }
+
+  .detail-tile strong {
+    font-size: 13px;
+  }
+
+  .profile-intro,
+  .profile-preferences,
+  .profile-favorites {
+    padding-left: 23px;
+    padding-right: 23px;
+  }
+
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+
