@@ -5,30 +5,46 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Tillad JSON
+/* =========================
+   TILLAD JSON
+========================= */
 app.use(express.json());
 
-// Assets
+
+/* =========================
+   ASSETS
+========================= */
 app.use(
   "/assets",
   express.static(path.join(__dirname, "../assets"))
 );
 
-// API-routes
+
+/* =========================
+   API-ROUTES
+========================= */
 app.use("/api/users", require("./routes/users"));
 app.use("/api/weather", require("./routes/weather"));
 
-// Frontend
+
+/* =========================
+   FRONTEND
+========================= */
 app.use(
   express.static(path.join(__dirname, "../frontend"))
 );
 
-// Endpoint
+
+/* =========================
+   ENDPOINT
+========================= */
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
-// Start server
+/* =========================
+   START SERVER
+========================= */
 app.listen(PORT, () => {
   console.log(`WeatherApp: http://localhost:${PORT}`);
 });

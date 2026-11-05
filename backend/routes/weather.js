@@ -1,9 +1,9 @@
 
 const router = require("express").Router();
 
-// =========================
-// MET NORWAY API
-// =========================
+/* =========================
+   MET NORWAY API
+========================= */
 
 const API_URL =
   "https://api.met.no/weatherapi/locationforecast/2.0/compact";
@@ -11,9 +11,9 @@ const API_URL =
 const USER_AGENT =
   "Weatherly/1.0 (https://github.com/evaschwartz/weatherapp; evaschwartz@live.dk)";
 
-// =========================
-// DANISH CITIES
-// =========================
+/* =========================
+   DANISH CITIES
+========================= */
 
 const cities = [
   { name: "København", lat: 55.6761, lon: 12.5683 },
@@ -28,16 +28,16 @@ const cities = [
   { name: "Horsens", lat: 55.8607, lon: 9.8503 }
 ];
 
-// =========================
-// CACHE
-// =========================
+/* =========================
+   CACHE
+========================= */
 
 const cache = new Map();
 const CACHE_DURATION = 20 * 60 * 1000;
 
-// =========================
-// HELPERS
-// =========================
+/* =========================
+   HELPERS
+========================= */
 
 function validateCoordinates(latInput, lonInput) {
   if (
@@ -69,9 +69,9 @@ function validateCoordinates(latInput, lonInput) {
   };
 }
 
-// =========================
-// FETCH WEATHER DATA
-// =========================
+/* =========================
+   FETCH WEATHER DATA
+========================= */
 
 async function fetchWeather(lat, lon) {
   const url = new URL(API_URL);
@@ -159,17 +159,17 @@ async function fetchWeather(lat, lon) {
   };
 }
 
-// =========================
-// GET AVAILABLE CITIES
-// =========================
+/* =========================
+   GET AVAILABLE CITIES
+========================= */
 
 router.get("/cities", (req, res) => {
   res.json(cities);
 });
 
-// =========================
-// TEST API CONNECTION
-// =========================
+/* =========================
+   TEST API CONNECTION
+========================= */
 
 router.get("/test/connection", async (req, res) => {
   try {
@@ -201,9 +201,9 @@ router.get("/test/connection", async (req, res) => {
   }
 });
 
-// =========================
-// GET WEATHER
-// =========================
+/* =========================
+   GET WEATHER
+========================= */
 
 router.get("/", async (req, res) => {
   const coordinates = validateCoordinates(

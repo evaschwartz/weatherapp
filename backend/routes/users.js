@@ -2,13 +2,20 @@
 const router = require("express").Router();
 const db = require("../db");
 
+/* =========================
+   VALID VALUES
+========================= */
+
 const valid = {
   age_group: ["child", "teen", "adult"],
   sensitivity: ["cold", "neutral", "warm"],
   transport: ["walk", "bike", "car"]
 };
 
-// Hent en bruger inklusive favoritbyer
+/* =========================
+   GET USER
+========================= */
+
 function getUser(id) {
   const user = db
     .prepare("SELECT * FROM users WHERE id = ?")
@@ -26,7 +33,10 @@ function getUser(id) {
   return { ...user, favorites };
 }
 
-// Login eller opret ny bruger
+/* =========================
+   LOGIN / CREATE USER
+========================= */
+
 router.post("/login", (req, res) => {
   const name = String(req.body?.name || "").trim();
 
@@ -56,7 +66,10 @@ router.post("/login", (req, res) => {
   });
 });
 
-// Hent bruger
+/* =========================
+   FETCH USER
+========================= */
+
 router.get("/:id", (req, res) => {
   const user = getUser(req.params.id);
 
@@ -69,7 +82,10 @@ router.get("/:id", (req, res) => {
   res.json(user);
 });
 
-// Opdater præferencer
+/* =========================
+   UPDATE PREFERENCES
+========================= */
+
 router.patch("/:id", (req, res) => {
   const user = getUser(req.params.id);
 
@@ -114,7 +130,10 @@ router.patch("/:id", (req, res) => {
   res.json(getUser(user.id));
 });
 
-// Tilføj favoritby
+/* =========================
+   ADD FAVORITE CITY
+========================= */
+
 router.post("/:id/favorites", (req, res) => {
   const user = getUser(req.params.id);
 
@@ -141,7 +160,10 @@ router.post("/:id/favorites", (req, res) => {
   res.json(getUser(user.id));
 });
 
-// Fjern favoritby
+/* =========================
+   REMOVE FAVORITE CITY
+========================= */
+
 router.delete("/:id/favorites/:city", (req, res) => {
   const user = getUser(req.params.id);
 
